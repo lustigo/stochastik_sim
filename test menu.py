@@ -1,5 +1,13 @@
 from tkinter import *
-
+#from bla import *
+#from
+def startpressed():
+    a=var1.get()
+    print(a)
+    #if ....
+    #elif ....
+def csvpressed():
+    DieAntwort=42
 root=Tk()
 x=str(1600)
 y=str(900)
@@ -18,9 +26,9 @@ photo = PhotoImage(file="zahnrad1.png")
 label = Label(image=photo,borderwidth=0)
 label.image = photo 
 label.place(y=0,x=int(x)-200)
-startbutton=Button(root,text='Start',font=('Arial',40),bg='blue',borderwidth=5)       #command=start ?! -> var1.get()
+startbutton=Button(root,text='Start',font=('Arial',40),bg='blue',borderwidth=5,command=startpressed)       #command=start -> var1.get()
 startbutton.place(x=0,y=int(y)-100,width=int(y)-200,height=100)
-csvbutton=Button(root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5)     #command=exportCSV ?!
+csvbutton=Button(root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=csvpressed)     #command=exportCSV 
 csvbutton.place(x=int(x)/2+50,y=int(y)-100,width=int(y)-200,height=100)
 
 
