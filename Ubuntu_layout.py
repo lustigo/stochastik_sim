@@ -10,13 +10,19 @@ def startpressed():
 def csvpressed():
     DieAntwort=42
 def MouseOneDown(event):
-    global pressed,changer
+    global pressed,changer0,changer1
     if pressed==0:
-        changer=Text(root,bg='white',font=('Arial',30),borderwidth=1)
-        changer.place(y=100,x=int(x)-200,width=100,height=50)
+        changer0=Text(root,bg='white',font=('Arial',30),borderwidth=1)
+        changer0.place(y=100,x=int(x)-150,width=100,height=50)
+        changer1=Label(root,text='Wahrscheinlichkeit:',bg='white',font=('Arial',30),borderwidth=1)
+        changer1.place(y=100,x=int(x)-500,width=350,height=50)
         pressed=1
     else:
-        changer.destroy()
+        #
+        #
+        #
+        changer1.destroy()
+        changer0.destroy()
         pressed=0
 root=Tk()
 x=str(1080)
@@ -30,7 +36,7 @@ var1 = StringVar(root)
 var1.set('options')
 drop = OptionMenu(root,var1,*lst1)
 drop.config(font=('Arial',(30)),bg='white')
-drop['menu'].config(font=('calibri',(2)),bg='white')
+drop['menu'].config(font=('calibri',(20)),bg='white')
 drop.pack(side=TOP)
 photo = PhotoImage(file='z1.gif')
 label = Label(image=photo,borderwidth=0)
