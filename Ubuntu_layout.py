@@ -1,6 +1,7 @@
 from tkinter import *
 #from bla import *
 #from
+pressed=0
 def startpressed():
     a=var1.get()
     print(a)
@@ -9,8 +10,14 @@ def startpressed():
 def csvpressed():
     DieAntwort=42
 def MouseOneDown(event):
-    print('A')
-    
+    global pressed,changer
+    if pressed==0:
+        changer=Text(root,bg='white',font=('Arial',30),borderwidth=1)
+        changer.place(y=100,x=int(x)-200,width=100,height=50)
+        pressed=1
+    else:
+        changer.destroy()
+        pressed=0
 root=Tk()
 x=str(1080)
 y=str(720)
@@ -23,7 +30,7 @@ var1 = StringVar(root)
 var1.set('options')
 drop = OptionMenu(root,var1,*lst1)
 drop.config(font=('Arial',(30)),bg='white')
-drop['menu'].config(font=('calibri',(200)),bg='white')
+drop['menu'].config(font=('calibri',(2)),bg='white')
 drop.pack(side=TOP)
 photo = PhotoImage(file='z1.gif')
 label = Label(image=photo,borderwidth=0)
