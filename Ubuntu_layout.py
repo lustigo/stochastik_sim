@@ -1,4 +1,5 @@
 from tkinter import *
+from Simulator import Simulator
 #from bla import *
 #from
 pressed=0
@@ -8,7 +9,9 @@ def startpressed():
     #if ....
     #elif ....
 def csvpressed():
-    DieAntwort=42
+    sim=Simulator()
+    list=[2,3] ######
+    sim.exportCSV(list,"test.csv")
 def MouseOneDown(event):
     global pressed,changer0,changer1
     if pressed==0:
