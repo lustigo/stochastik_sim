@@ -4,6 +4,7 @@ from random import shuffle
 class Marriage():
     # Simulation by Bernoulli
     # simulates how many marriages break if at a specific time 10 of 20 people die
+    # schoolbook p.32
 
     def __init__(self):
         self.complete = [] #List of all rounds
