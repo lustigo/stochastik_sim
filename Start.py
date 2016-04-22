@@ -1,9 +1,9 @@
-from Simulator import Simulator
+import Marriage
 #Combines Front&Backend
 #does all the magic
 
+#TEST
+#m = Marriage.Marriage()
+#m.sim(50)
+#m.exportcsv("debug.csv")
 
-#TESTs
-sim = Simulator()
-list = [1,2,3,4]
-sim.exportCSV(list,"test.csv")

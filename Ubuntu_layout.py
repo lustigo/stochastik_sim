@@ -1,5 +1,5 @@
 from tkinter import *
-from Simulator import Simulator
+from Marriage import Simulator
 #from bla import *
 #from
 pressed=0
