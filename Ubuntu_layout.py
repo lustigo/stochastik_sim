@@ -46,7 +46,10 @@ class Frontend():
                 self.root.update()
             a=self.var1.get()
             if self.pressed==1:
-                self.b=int(self.changer0.get('1.0','end-1c'))
+                try:
+                    self.c=self.changer2.get('1.0','end-1c')
+                except (AttributeError,TclError):
+                    z=0
                 try:
                     self.c=self.changer2.get('1.0','end-1c')
                 except (AttributeError,TclError):
@@ -133,6 +136,9 @@ class Frontend():
                 self.changer0.place(y=100,x=int(self.x)-150,width=100,height=50)
                 self.changer1=Label(self.root,text='Versuche:',bg='white',font=('Arial',30),borderwidth=1)
                 self.changer1.place(y=100,x=int(self.x)-400,width=250,height=50)
+                self.csvbutton.destroy()
+                self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=self.csvpressed)     
+                self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
             elif a=='Atom':
                 self.changer0=Text(self.root,bg='white',font=('Arial',30),borderwidth=1)
                 self.changer0.place(y=100,x=int(self.x)-150,width=100,height=50)
@@ -142,6 +148,13 @@ class Frontend():
                 self.changer2.place(y=200,x=int(self.x)-150,width=100,height=50)
                 self.changer3=Label(self.root,text='Zerfallswahrscheinlichkeit:',bg='white',font=('Arial',30),borderwidth=1)
                 self.changer3.place(y=200,x=int(self.x)-620,width=450,height=50)
+                self.csvbutton.destroy()
+                self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=self.csvpressed)     
+                self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
+            elif a=='BubbleGum':
+                self.csvbutton.destroy()
+                self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='gray',borderwidth=5)     
+                self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
             elif a=='House_of_Cards':
                 self.changer0=Text(self.root,bg='white',font=('Arial',30),borderwidth=1)
                 self.changer0.place(y=100,x=int(self.x)-150,width=100,height=50)
@@ -151,11 +164,17 @@ class Frontend():
                 self.changer2.place(y=200,x=int(self.x)-150,width=100,height=50)
                 self.changer3=Label(self.root,text='Kartenanzahl(32,55):',bg='white',font=('Arial',30),borderwidth=1)
                 self.changer3.place(y=200,x=int(self.x)-620,width=450,height=50)
+                self.csvbutton.destroy()
+                self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='gray',borderwidth=5)     
+                self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
             elif a=='Lotto':
                 self.changer0=Text(self.root,bg='white',font=('Arial',30),borderwidth=1)
                 self.changer0.place(y=100,x=int(self.x)-150,width=100,height=50)
                 self.changer1=Label(self.root,text='Versuche:',bg='white',font=('Arial',30),borderwidth=1)
                 self.changer1.place(y=100,x=int(self.x)-400,width=250,height=50)
+                self.csvbutton.destroy()
+                self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=self.csvpressed)     
+                self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
             elif a=='SecretSanta':
                 self.changer0=Text(self.root,bg='white',font=('Arial',30),borderwidth=1)
                 self.changer0.place(y=100,x=int(self.x)-150,width=100,height=50)
@@ -165,23 +184,23 @@ class Frontend():
                 self.changer2.place(y=200,x=int(self.x)-150,width=100,height=50)
                 self.changer3=Label(self.root,text='Anzahl der Schüler:',bg='white',font=('Arial',30),borderwidth=1)
                 self.changer3.place(y=200,x=int(self.x)-550,width=400,height=50)
+                self.csvbutton.destroy()
+                self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='gray',borderwidth=5)     
+                self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
             self.pressed=1
         else:
-            self.b=self.changer0.get('1.0','end-1c')
             try:
                 self.c=self.changer2.get('1.0','end-1c')
+                self.changer3.destroy()
+                self.changer2.destroy()
             except (AttributeError,TclError):
                     z=0
             try:
-                self.changer3.destroy()
-            except AttributeError:
+                self.b=self.changer0.get('1.0','end-1c')
+                self.changer1.destroy()
+                self.changer0.destroy()
+            except (AttributeError,TclError):
                     z=0
-            try:
-                self.changer2.destroy()
-            except AttributeError:
-                    z=0
-            self.changer1.destroy()
-            self.changer0.destroy()
             self.pressed=0
 
 a=Frontend(1600,900)
