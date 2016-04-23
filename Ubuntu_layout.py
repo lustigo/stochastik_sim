@@ -137,5 +137,5 @@ class Frontend():
             self.changer0.destroy()
             self.pressed=0
 
-a=Frontend(1600,900)
-a.startwindow()
+#a=Frontend(1600,900)
+#a.startwindow()

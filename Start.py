@@ -1,9 +1,16 @@
-import Marriage
+from tkinter import *
+from random import randint,shuffle
+from Marriage import Marriage
+from Atom import Atom
+from BubbleGum import BubbleGum
+from House_of_Cards import House_of_Cards
+from Lotto import Lotto
+from SecretSanta import SecretSanta
+from Ubuntu_layout import Frontend
+
 #Combines Front&Backend
 #does all the magic
 
-#TEST
-#m = Marriage.Marriage()
-#m.sim(50)
-#m.exportcsv("debug.csv")
+a=Frontend(1600,900)
+a.startwindow()
 
