@@ -14,6 +14,8 @@ class Frontend():
         self.pressed=0
         self.b=10
         self.c=30
+        self.grapher=0
+        self.graph=[0,0,0,0]
     def startwindow(self):
         self.root=Tk()
         a=str(self.x+'x'+self.y)
@@ -37,12 +39,17 @@ class Frontend():
         self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=self.csvpressed)     
         self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
     def startpressed(self):
+            if self.grapher==1:
+                for x in range(len(self.graph)):
+                    self.graph[x].destroy()
+                self.grapher=0
+                self.root.update()
             a=self.var1.get()
             if self.pressed==1:
                 self.b=int(self.changer0.get('1.0','end-1c'))
                 try:
                     self.c=self.changer2.get('1.0','end-1c')
-                except AttributeError:
+                except (AttributeError,TclError):
                     z=0
             if a=='Marriage':
                 self.run0=Marriage()
@@ -64,10 +71,50 @@ class Frontend():
                 self.run4=Lotto(self.b)
                 self.run4.DEBUG=False
                 self.run4.sim()
+                x=4
+                y=1
+                count=0
+                self.graph=[0,0,0,0]
+                self.graph[0]=Label(self.root,bg='black')
+                self.graph[0].place(x=10,width=10+(int(self.x)*0.8),height=1,y=int(self.y)-int(self.y)/4*0.5-350)
+                self.graph[1]=Label(self.root,text='50%',font=('calibri',10))
+                self.graph[1].place(x=60+(int(self.x)*0.8),width=50,height=50,y=int(self.y)-int(self.y)/4*0.5-375)
+                self.graph[2]=Label(self.root,bg='black')
+                self.graph[2].place(x=10,width=20,height=1,y=int(self.y)-350)
+                self.graph[3]=Label(self.root,bg='black')
+                self.graph[3].place(x=10,width=20,height=1,y=int(self.y)-int(self.y)/4-350)
+                for draw in self.run4.turns:
+                    self.grapher=1
+                    if draw.count(0) == 0:
+                        count += 1
+                    elif draw.count(1) == 0:
+                        count += 1
+                    elif draw.count(2) == 0:
+                        count += 1
+                    elif draw.count(3) == 0:
+                        count += 1
+                    elif draw.count(4) == 0:
+                        count += 1
+                    elif draw.count(5) == 0:
+                        count += 1
+                    self.graph+=[0]
+                    self.graph[x]=Label(self.root,bg='red')
+                   # print(int(10+(int(self.x)*0.8)*(x/self.b)))
+                    self.graph[x].place(x=int(10+(int(self.x)*0.8)*(y/self.b)),width=3,height=3,y=int(int(self.y)-int(self.y)/4*(count/y)-350))
+                    x+=1
+                    y+=1
+                    self.root.update()
             elif a=='SecretSanta':
                 self.c=int(self.c)
                 self.run5=SecretSanta(self.b,self.c)
+                self.run5.DEBUG=False
                 self.run5.sim()
+                self.grapher=1
+                self.graph=[0]
+                self.graph[0]=Label(self.root,text=('Durchschnitt: '+str(round(self.run5.getrel(),4))),font=('calibri',19))
+                self.graph[0].place(x=10,y=450)
+              #  self.graph[1]=Label(self.root,bg='red')
+              #  self.graph[1].place(x=(int(self.x)-3),y=int(self.y)-3,width=3,height=3)
     def csvpressed(self):
         a=self.var1.get()
         if a=='Marriage':
@@ -137,5 +184,5 @@ class Frontend():
             self.changer0.destroy()
             self.pressed=0
 
-#a=Frontend(1600,900)
-#a.startwindow()
+a=Frontend(1600,900)
+a.startwindow()
