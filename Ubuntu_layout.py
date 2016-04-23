@@ -41,19 +41,20 @@ class Frontend():
     def startpressed(self):
             if self.grapher==1:
                 for x in range(len(self.graph)):
-                    self.graph[x].destroy()
+                    if self.graph[x]!=0:
+                        self.graph[x].destroy()
                 self.grapher=0
                 self.root.update()
             a=self.var1.get()
             if self.pressed==1:
                 try:
-                    self.c=self.changer2.get('1.0','end-1c')
-                except (AttributeError,TclError):
-                    z=0
+                    self.b=int(self.changer0.get('1.0','end-1c'))
+                except (AttributeError,TclError,ValueError):
+                    self.b=10
                 try:
                     self.c=self.changer2.get('1.0','end-1c')
-                except (AttributeError,TclError):
-                    z=0
+                except (AttributeError,TclError,ValueError):
+                    self.c=1
             if a=='Marriage':
                 self.run0=Marriage()
                 self.run0.DEBUG=False
@@ -78,6 +79,7 @@ class Frontend():
                 y=1
                 count=0
                 self.graph=[0,0,0,0]
+                self.grapher=1
                 self.graph[0]=Label(self.root,bg='black')
                 self.graph[0].place(x=10,width=10+(int(self.x)*0.8),height=1,y=int(self.y)-int(self.y)/4*0.5-350)
                 self.graph[1]=Label(self.root,text='50%',font=('calibri',10))
@@ -87,7 +89,6 @@ class Frontend():
                 self.graph[3]=Label(self.root,bg='black')
                 self.graph[3].place(x=10,width=20,height=1,y=int(self.y)-int(self.y)/4-350)
                 for draw in self.run4.turns:
-                    self.grapher=1
                     if draw.count(0) == 0:
                         count += 1
                     elif draw.count(1) == 0:
@@ -201,7 +202,15 @@ class Frontend():
                 self.changer0.destroy()
             except (AttributeError,TclError):
                     z=0
+            if self.b=='':
+                self.b=1
+            else:
+                self.b=int(self.b)
+            if self.c=='':
+                self.c=1
+            else:
+                self.c=int(float(self.c))
             self.pressed=0
 
-a=Frontend(1600,900)
-a.startwindow()
+#a=Frontend(1600,900)
+#a.startwindow()
