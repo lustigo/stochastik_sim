@@ -4,8 +4,8 @@ from Marriage import Simulator
 #from
 class Frontend():
     def __init__(self,x,y):
-        self.x=str(x)   #1080
-        self.y=str(y)   #720
+        self.x=str(x)   #1600
+        self.y=str(y)   #900
         self.pressed=0
         self.b=0
     def startwindow(self):
@@ -32,6 +32,8 @@ class Frontend():
         self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
     def startpressed(self):
         a=self.var1.get()
+        if self.pressed==1:
+            self.b=self.changer0.get('1.0','end-1c')
        # try:
       #      self.b=self.changer0.get('1.0','end-1c')
        # except AttributeError:
@@ -58,5 +60,5 @@ class Frontend():
             self.changer0.destroy()
             self.pressed=0
 
-a=Frontend(1080,720)
+a=Frontend(1600,900)
 a.startwindow()
