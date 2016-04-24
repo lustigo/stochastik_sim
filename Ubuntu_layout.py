@@ -18,6 +18,7 @@ class Frontend():
     def startwindow(self):
         self.root=Tk()
         a=str(self.x+'x'+self.y)
+        self.root.title('Wahrscheinlichkeinten & Simulation')
         self.root.geometry(a)
         self.g=Label(self.root,bg='white')
         self.g.place(x=0,y=0,width=self.x,height=self.y)
