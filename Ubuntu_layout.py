@@ -1,5 +1,4 @@
-from tkinter import *
-from random import randint,shuffle
+from tkinter import Tk, Label, StringVar,OptionMenu,TOP,PhotoImage,Button
 from Marriage import Marriage
 from Atom import Atom
 from BubbleGum import BubbleGum
@@ -56,9 +55,9 @@ class Frontend():
                 except (AttributeError,TclError,ValueError):
                     self.c=1
             if a=='Marriage':
-                self.run0=Marriage()
+                self.run0=Marriage(self.b)
                 self.run0.DEBUG=False
-                self.run0.sim(self.b)
+                self.run0.sim()
             elif a=='Atom':
                 self.c=float(self.c)
                 self.run1=Atom(self.c,self.b)
@@ -122,13 +121,13 @@ class Frontend():
     def csvpressed(self):
         a=self.var1.get()
         if a=='Marriage':
-            self.run0.exportcsv('Marriage_Template.ods')
+            self.run0.exportcsv('Marriage_Simulation.csv')
         elif a=='Atom':
-            self.run1.exportCSV('Atom_Template.ods')
+            self.run1.exportCSV('Atom_Simulation.csv')
        # elif a=='House_of_Cards':
       #      self.run3.exportCSV('House_of_cards_Template.ods')
         elif a=='Lotto':
-            self.run4.exportCSV('Lotto_Template.ods')
+            self.run4.exportCSV('Lotto_Simulation.csv')
     def MouseOneDown(self,event):
         if self.pressed==0:
             a=self.var1.get()
