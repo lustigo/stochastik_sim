@@ -1,12 +1,12 @@
-==Installation
+#Installation
 
 python3 Start.py
 
-==Dependencies
+#Dependencies
 
 python3-tk
 
-==Unused files
+#Unused files
 
 Handout_ger.odt
 Handout_ger.pdf
