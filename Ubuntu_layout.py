@@ -122,13 +122,13 @@ class Frontend():
     def csvpressed(self):
         a=self.var1.get()
         if a=='Marriage':
-            self.run0.exportcsv('Marriage_Template.ods')
+            self.run0.exportcsv('Marriage_Template.csv')
         elif a=='Atom':
-            self.run1.exportCSV('Atom_Template.ods')
+            self.run1.exportCSV('Atom_Template.csv')
        # elif a=='House_of_Cards':
       #      self.run3.exportCSV('House_of_cards_Template.ods')
         elif a=='Lotto':
-            self.run4.exportCSV('Lotto_Template.ods')
+            self.run4.exportCSV('Lotto_Template.csv')
     def MouseOneDown(self,event):
         if self.pressed==0:
             a=self.var1.get()
