@@ -81,7 +81,7 @@ class Frontend():
                 self.grapher=1
                 self.graph[0]=Label(self.root,bg='black')
                 self.graph[0].place(x=10,width=10+(int(self.x)*0.8),height=1,y=int(self.y)-int(self.y)/4*0.5-350)
-                self.graph[1]=Label(self.root,text='50%',font=('calibri',10))
+                self.graph[1]=Label(self.root,text='50%',bg='white',font=('calibri',10))
                 self.graph[1].place(x=60+(int(self.x)*0.8),width=50,height=50,y=int(self.y)-int(self.y)/4*0.5-375)
                 self.graph[2]=Label(self.root,bg='black')
                 self.graph[2].place(x=10,width=20,height=1,y=int(self.y)-350)
@@ -114,7 +114,7 @@ class Frontend():
                 self.run5.sim()
                 self.grapher=1
                 self.graph=[0]
-                self.graph[0]=Label(self.root,text=('Durchschnitt: '+str(round(self.run5.getrel(),4))),font=('calibri',19))
+                self.graph[0]=Label(self.root,bg='white',text=('Durchschnitt: '+str(round(self.run5.getrel(),4))),font=('calibri',19))
                 self.graph[0].place(x=10,y=450)
               #  self.graph[1]=Label(self.root,bg='red')
               #  self.graph[1].place(x=(int(self.x)-3),y=int(self.y)-3,width=3,height=3)
