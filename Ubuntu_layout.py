@@ -34,7 +34,7 @@ class Frontend():
         self.label.image = self.photo
         self.label.bind('<1>',self.MouseOneDown)
         self.label.place(y=0,x=int(self.x)-200)
-        self.startbutton=Button(self.root,text='Start',font=('Arial',40),bg='blue',borderwidth=5,command=self.startpressed)       
+        self.startbutton=Button(self.root,text='Start',font=('Arial',40),bg='#B4045F',borderwidth=5,command=self.startpressed)       
         self.startbutton.place(x=0,y=int(self.y)-100,width=int(self.y)-200,height=100)
         self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=self.csvpressed)     
         self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
