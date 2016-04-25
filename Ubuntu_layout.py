@@ -1,4 +1,4 @@
-from tkinter import Tk, Label, StringVar,OptionMenu,TOP,PhotoImage,Button,Text
+from tkinter import Tk, Label, StringVar,OptionMenu,TOP,PhotoImage,Button,Text,TclError
 from Marriage import Marriage
 from Atom import Atom
 from BubbleGum import BubbleGum
