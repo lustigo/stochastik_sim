@@ -104,7 +104,7 @@ class Frontend():
                     self.graph+=[0]
                     self.graph[x]=Label(self.root,bg='red')
                     if str(self.c)=='1':
-                        self.graph[x].place(x=int(10+(int(self.x)*0.8)*((y-1)/self.b)),width=int(1000/self.b),height=int(self.y)-350-(int(int(self.y)-int(self.y)/4*(count/y)-350)),y=int(int(self.y)-int(self.y)/4*(count/y)-350))
+                        self.graph[x].place(x=int(10+(int(self.x)*0.8)*((y-1)/self.b)),width=int(1200/self.b),height=int(self.y)-350-(int(int(self.y)-int(self.y)/4*(count/y)-350)),y=int(int(self.y)-int(self.y)/4*(count/y)-350))
                     else:
                         self.graph[x].place(x=int(10+(int(self.x)*0.8)*(y/self.b)),width=3,height=3,y=int(int(self.y)-int(self.y)/4*(count/y)-350))
                     x+=1
