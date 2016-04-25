@@ -1,4 +1,4 @@
-from tkinter import Tk, Label, StringVar,OptionMenu,TOP,PhotoImage,Button
+from tkinter import Tk, Label, StringVar,OptionMenu,TOP,PhotoImage,Button,Text
 from Marriage import Marriage
 from Atom import Atom
 from BubbleGum import BubbleGum
@@ -18,6 +18,7 @@ class Frontend():
     def startwindow(self):
         self.root=Tk()
         a=str(self.x+'x'+self.y)
+        self.root.title('Wahrscheinlichkeinten & Simulation')
         self.root.geometry(a)
         self.g=Label(self.root,bg='white')
         self.g.place(x=0,y=0,width=self.x,height=self.y)
@@ -33,7 +34,7 @@ class Frontend():
         self.label.image = self.photo
         self.label.bind('<1>',self.MouseOneDown)
         self.label.place(y=0,x=int(self.x)-200)
-        self.startbutton=Button(self.root,text='Start',font=('Arial',40),bg='blue',borderwidth=5,command=self.startpressed)       
+        self.startbutton=Button(self.root,text='Start',font=('Arial',40),bg='#B4045F',borderwidth=5,command=self.startpressed)       
         self.startbutton.place(x=0,y=int(self.y)-100,width=int(self.y)-200,height=100)
         self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=self.csvpressed)     
         self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
@@ -102,8 +103,10 @@ class Frontend():
                         count += 1
                     self.graph+=[0]
                     self.graph[x]=Label(self.root,bg='red')
-                   # print(int(10+(int(self.x)*0.8)*(x/self.b)))
-                    self.graph[x].place(x=int(10+(int(self.x)*0.8)*(y/self.b)),width=3,height=3,y=int(int(self.y)-int(self.y)/4*(count/y)-350))
+                    if str(self.c)=='1':
+                        self.graph[x].place(x=int(10+(int(self.x)*0.8)*((y-1)/self.b)),width=int(1000/self.b),height=int(self.y)-350-(int(int(self.y)-int(self.y)/4*(count/y)-350)),y=int(int(self.y)-int(self.y)/4*(count/y)-350))
+                    else:
+                        self.graph[x].place(x=int(10+(int(self.x)*0.8)*(y/self.b)),width=3,height=3,y=int(int(self.y)-int(self.y)/4*(count/y)-350))
                     x+=1
                     y+=1
                     self.root.update()
@@ -116,16 +119,12 @@ class Frontend():
                 self.graph=[0]
                 self.graph[0]=Label(self.root,bg='white',text=('Durchschnitt: '+str(round(self.run5.getrel(),4))),font=('calibri',19))
                 self.graph[0].place(x=10,y=450)
-              #  self.graph[1]=Label(self.root,bg='red')
-              #  self.graph[1].place(x=(int(self.x)-3),y=int(self.y)-3,width=3,height=3)
     def csvpressed(self):
         a=self.var1.get()
         if a=='Marriage':
             self.run0.exportcsv('Marriage_Simulation.csv')
         elif a=='Atom':
             self.run1.exportCSV('Atom_Simulation.csv')
-       # elif a=='House_of_Cards':
-      #      self.run3.exportCSV('House_of_cards_Template.ods')
         elif a=='Lotto':
             self.run4.exportCSV('Lotto_Simulation.csv')
     def MouseOneDown(self,event):
@@ -172,6 +171,10 @@ class Frontend():
                 self.changer0.place(y=100,x=int(self.x)-150,width=100,height=50)
                 self.changer1=Label(self.root,text='Versuche:',bg='white',font=('Arial',30),borderwidth=1)
                 self.changer1.place(y=100,x=int(self.x)-400,width=250,height=50)
+                self.changer2=Text(self.root,bg='white',font=('Arial',30),borderwidth=1)
+                self.changer2.place(y=200,x=int(self.x)-150,width=100,height=50)
+                self.changer3=Label(self.root,text='Version:',bg='white',font=('Arial',30),borderwidth=1)
+                self.changer3.place(y=200,x=int(self.x)-400,width=250,height=50)
                 self.csvbutton.destroy()
                 self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=self.csvpressed)     
                 self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
@@ -210,6 +213,3 @@ class Frontend():
             else:
                 self.c=int(float(self.c))
             self.pressed=0
-
-#a=Frontend(1600,900)
-#a.startwindow()
