@@ -22,6 +22,7 @@ class Frontend():
         self.root.geometry(a)
         self.g=Label(self.root,bg='white')
         self.g.place(x=0,y=0,width=self.x,height=self.y)
+       # self.g.bind('<1>',self.optioncanged)
         self.lst1 = ['Marriage','Atom','BubbleGum','House_of_Cards','Lotto','SecretSanta']
         self.var1 = StringVar(self.root)
         self.var1.set('Marriage')
@@ -143,6 +144,32 @@ class Frontend():
             self.run1.exportCSV('Atom_Simulation.csv')
         elif a=='Lotto':
             self.run4.exportCSV('Lotto_Simulation.csv')
+  #  def optioncanged(self,event):
+  #          a=self.var1.get()
+   #         if a=='Marriage':
+    #            self.csvbutton.destroy()
+     #           self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=self.csvpressed)     
+          #      self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
+      #      elif a=='Atom':
+       #         self.csvbutton.destroy()
+        #        self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=self.csvpressed)     
+         #       self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
+#            elif a=='BubbleGum':
+ #               self.csvbutton.destroy()
+  #              self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='gray',borderwidth=5)     
+   #             self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
+    #        elif a=='House_of_Cards':
+     #           self.csvbutton.destroy()
+      #          self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='gray',borderwidth=5)     
+       #         self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
+        #    elif a=='Lotto':
+         #       self.csvbutton.destroy()
+          #      self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=self.csvpressed)     
+           #     self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
+            #elif a=='SecretSanta':
+   #             self.csvbutton.destroy()
+    #            self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='gray',borderwidth=5)     
+     #           self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
     def MouseOneDown(self,event):
         if self.pressed==0:
             a=self.var1.get()
