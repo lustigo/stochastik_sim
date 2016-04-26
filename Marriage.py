@@ -6,19 +6,20 @@ class Marriage():
     # simulates how many marriages break if at a specific time 10 of 20 people die
     # schoolbook p.32
 
-    def __init__(self):
+    def __init__(self,max):
         self.complete = [] #List of all rounds
         self.marriages = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,0,0] # all 20 persons in 10 marriages
         self.run = False #checks if simulation is finished
         self.DEBUG = True #if True, console output of single turn list
         if self.DEBUG:
             print(self.marriages)
+        self.max=max
 
-    def sim(self, max):
+    def sim(self):
         # simulates "Marriage"
         # takes how often the simulation should run, returns the complete list of turns
         if not self.run:
-            for _ in range(max - 1):
+            for _ in range(self.max):
                 m = list(self.marriages)
                 shuffle(m)
                 if self.DEBUG:
@@ -130,6 +131,8 @@ class Marriage():
                 four += 1
             else:
                 five += 1
-        return [five, four, three, two, one, zero]
+        return [five, four, three, two, one, zero]#
+a=Marriage(10)
+a.sim()
 
 
