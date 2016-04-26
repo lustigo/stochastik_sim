@@ -189,7 +189,7 @@ class Frontend():
                 self.changer2=Text(self.root,bg='white',font=('Arial',30),borderwidth=1)
                 self.changer2.place(y=200,x=int(self.x)-150,width=100,height=50)
                 self.changer3=Label(self.root,text='Zerfallswahrscheinlichkeit:',bg='white',font=('Arial',30),borderwidth=1)
-                self.changer3.place(y=200,x=int(self.x)-620,width=450,height=50)
+                self.changer3.place(y=200,x=int(self.x)-650,width=500,height=50)
                 self.csvbutton.destroy()
                 self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='green',borderwidth=5,command=self.csvpressed)     
                 self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
