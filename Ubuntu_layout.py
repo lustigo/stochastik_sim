@@ -70,9 +70,13 @@ class Frontend():
                 self.run2.DEBUG=False
                 self.run2.sim()
                 self.grapher=1
-                self.graph=[0]
-                self.graph[0]=Label(self.root,bg='white',text=('Durchschnitt: '+str(round(self.run2.getrel(),4))),font=('calibri',19))
+                self.graph=[0,0]
+                g=str(round(self.run2.getrel()[0],4))
+                h=str(round(self.run2.getrel()[1],4))
+                self.graph[0]=Label(self.root,bg='white',text='Durchschnitt Karten zu viel: '+g,font=('calibri',19))
                 self.graph[0].place(x=10,y=450)
+                self.graph[1]=Label(self.root,bg='white',text='Durchschnitt dass es passiert: '+h,font=('calibri',19))
+                self.graph[1].place(x=10,y=500)
             elif a=='House_of_Cards':
                 if self.c=='':
                     self.c=0

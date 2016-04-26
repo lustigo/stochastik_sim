@@ -10,12 +10,13 @@ class BubbleGum():
         self.cards = [] #which cards i own
         self.double = 0
         self.max=max
+        self.happened=0
     def sim(self):
         #simulates, returns self.packs
         #stops when I own all 15 cards
         for x in range(self.max):
             pack = []
-            liste=[]
+            self.double1=self.double
             for _ in range(5):
                 card = randint(1,15)
                 pack.append(card)
@@ -24,11 +25,11 @@ class BubbleGum():
             for c in pack:
                 if c in liste:
                     self.double += 1
-    
-                
+
                 else:
                     liste=liste+[c]
-
+            if self.double1!=self.double:
+                self.happened+=1
             if self.DEBUG:
                 print(pack)
                 print(self.double)
@@ -41,12 +42,10 @@ class BubbleGum():
 
     def getrel(self):
         #returns how many double cards in one pack at the first 5 packs
-        return self.double/self.max
+        return (self.double/self.max,self.happened/self.max)
   #  def getpacks(self):
         #returns how many packs I own
    #     return len(b.cards)/5
-
-
 
 
 
