@@ -8,12 +8,7 @@ class House_of_Cards():
 
     def __init__(self, max, i=None):
         self.max = max #how often should be drawn?
-        if i == 55:
-            self.card_amount = 55 #How many cards are in the decks?
-        elif i == 32:
-            self.card_amount = 32
-        else:
-            self.card_amount = 12 # default
+        self.card_amount = i #How many cards are in the decks? # 12 is default
         self.double = 0 #How often was the same card drawn?
         self.DEBUG = True #Debug Console Outputs
 
@@ -25,20 +20,22 @@ class House_of_Cards():
             shuffle(deck1)
             deck2 = list(range(self.card_amount))
             shuffle(deck2)
-            if self.DEBUG:
-                print ("DECK1:")
-                print (deck1)
-                print ("DECK2:")
-                print (deck2)
-            if deck1.pop() == deck2.pop():
-                self.double +=1
+            self.DEBUG=True
+            while len(deck1)>0:
                 if self.DEBUG:
-                    print (self.double)
+                    print ("DECK1:")
+                    print (deck1)
+                    print ("DECK2:")
+                    print (deck2)
+                if deck1.pop() == deck2.pop():
+                    self.double +=1
+                    if self.DEBUG:
+                        print (self.double)
         return self.double
 
     def getrel(self):
         #returns relative how often the same card was drawn
-        return self.double/self.max/self.card_amount
+        return self.double/self.max#/self.card_amount
 
     def sim_dodekaeder(self):
         #simulates two twelve side cubes thrown at the same time
