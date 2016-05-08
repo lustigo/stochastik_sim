@@ -7,7 +7,7 @@ from Lotto import Lotto
 from SecretSanta import SecretSanta
 
 class Frontend():
-    def __init__(self,x,y):
+    def __init__(self,x,y,b):
         self.x=str(x)   #1600
         self.y=str(y)   #900
         self.pressed=0
@@ -15,8 +15,9 @@ class Frontend():
         self.c=30
         self.grapher=0
         self.graph=[0,0,0,0]
+        self.root=b
     def startwindow(self):
-        self.root=Tk()
+       # self.root=Tk()
         a=str(self.x+'x'+self.y)
         self.root.title('Wahrscheinlichkeinten & Simulation')
         self.root.geometry(a)

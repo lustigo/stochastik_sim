@@ -20,7 +20,6 @@ class House_of_Cards():
             shuffle(deck1)
             deck2 = list(range(self.card_amount))
             shuffle(deck2)
-            self.DEBUG=True
             while len(deck1)>0:
                 if self.DEBUG:
                     print ("DECK1:")

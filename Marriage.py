@@ -10,7 +10,7 @@ class Marriage():
         self.complete = [] #List of all rounds
         self.marriages = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,0,0] # all 20 persons in 10 marriages
         self.run = False #checks if simulation is finished
-        self.DEBUG = True #if True, console output of single turn list
+        self.DEBUG = False #if True, console output of single turn list
         if self.DEBUG:
             print(self.marriages)
         self.max=max
