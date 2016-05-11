@@ -5,6 +5,7 @@ from BubbleGum import BubbleGum
 from House_of_Cards import House_of_Cards
 from Lotto import Lotto
 from SecretSanta import SecretSanta
+from Coins import Coins
 
 class Frontend():
     def __init__(self,x,y,b):
@@ -24,7 +25,7 @@ class Frontend():
         self.g=Label(self.root,bg='white')
         self.g.place(x=0,y=0,width=self.x,height=self.y)
        # self.g.bind('<1>',self.optioncanged)
-        self.lst1 = ['Marriage','Atom','BubbleGum','House_of_Cards','Lotto','SecretSanta']
+        self.lst1 = ['Marriage','Atom','BubbleGum','House_of_Cards','Lotto','SecretSanta','Coins']
         self.var1 = StringVar(self.root)
         self.var1.set('Marriage')
         self.drop = OptionMenu(self.root,self.var1,*self.lst1)
@@ -141,6 +142,17 @@ class Frontend():
                 self.graph=[0]
                 self.graph[0]=Label(self.root,bg='white',text=('Durchschnitt: '+str(round(self.run5.getrel(),4))),font=('calibri',19))
                 self.graph[0].place(x=10,y=450)
+            elif a=='Coins':
+                self.run6=Coins(self.b)
+                self.run6.sim()
+                self.grapher=1
+                self.graph=[0,0]
+                v=self.run6.geterg()
+                vv=self.run6.getrel()
+                self.graph[0]=Label(self.root,bg='white',text=('Statistik für www: '+str(v[0])+'    '+str(vv[0])),font=('calibri',19))
+                self.graph[0].place(x=10,y=450)
+                self.graph[1]=Label(self.root,bg='white',text=('Statistik für zwz:   '+str(v[1])+'    '+str(vv[1])),font=('calibri',19))
+                self.graph[1].place(x=10,y=500)
     def csvpressed(self):
         a=self.var1.get()
         if a=='Marriage':
@@ -239,6 +251,14 @@ class Frontend():
                 self.changer2.place(y=200,x=int(self.x)-150,width=100,height=50)
                 self.changer3=Label(self.root,text='Anzahl der Schüler:',bg='white',font=('Arial',30),borderwidth=1)
                 self.changer3.place(y=200,x=int(self.x)-550,width=400,height=50)
+                self.csvbutton.destroy()
+                self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='gray',borderwidth=5)     
+                self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
+            elif a=='Coins':
+                self.changer0=Text(self.root,bg='white',font=('Arial',30),borderwidth=1)
+                self.changer0.place(y=100,x=int(self.x)-150,width=100,height=50)
+                self.changer1=Label(self.root,text='Versuche:',bg='white',font=('Arial',30),borderwidth=1)
+                self.changer1.place(y=100,x=int(self.x)-400,width=250,height=50)
                 self.csvbutton.destroy()
                 self.csvbutton=Button(self.root,text='Export CSV',font=('Arial',40),bg='gray',borderwidth=5)     
                 self.csvbutton.place(x=int(self.x)/2+50,y=int(self.y)-100,width=int(self.y)-230,height=100)
