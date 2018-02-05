@@ -33,19 +33,9 @@ class BubbleGum():
             if self.DEBUG:
                 print(pack)
                 print(self.double)
-       # while not set([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]).issubset(self.cards):
-       #     for _ in range(5):
-       #         self.cards.append(randint(1,15))
-      #  if self.DEBUG:
-      #      print(self.cards)
-      #  return self.cards
 
     def getrel(self):
         #returns how many double cards in one pack at the first 5 packs
         return (self.double/self.max,self.happened/self.max)
-  #  def getpacks(self):
-        #returns how many packs I own
-   #     return len(b.cards)/5
-
 
 

@@ -38,5 +38,3 @@ class Atom():
             output+= str(n)+","+str(a)+"\n"
             n += 1
         return self.writefile(filename, output)
-
-#Arbeitszeit Lukas isg. 5:20h

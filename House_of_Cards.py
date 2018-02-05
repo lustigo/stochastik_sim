@@ -34,8 +34,7 @@ class House_of_Cards():
 
     def getrel(self):
         #returns relative how often the same card was drawn
-        return self.double/self.max#/self.card_amount
-
+        return self.double/self.max
     def sim_dodekaeder(self):
         #simulates two twelve side cubes thrown at the same time
         #returns self.double
